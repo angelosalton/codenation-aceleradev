@@ -26,6 +26,13 @@ black_friday = pd.read_csv("black_friday.csv")
 
 # ## Inicie sua análise a partir daqui
 
+# In[9]:
+
+
+black_friday['Product_Category_3'][black_friday['Product_Category_2'].isna()].isna().all()
+#black_friday[['Product_Category_2','Product_Category_3']].head()
+
+
 # ## Questão 1
 # 
 # Quantas observações e quantas colunas há no dataset? Responda no formato de uma tuple `(n_observacoes, n_colunas)`.
@@ -149,5 +156,5 @@ def q9():
 
 def q10():
     # Retorne aqui o resultado da questão 10.
-    return all(black_friday['Product_Category_2'].isna() & black_friday['Product_Category_3'].isna())
+    return bool(black_friday['Product_Category_3'][black_friday['Product_Category_2'].isna()].isna().all())
 
