@@ -135,6 +135,8 @@ def q3():
     enc = OneHotEncoder(sparse=False)
     fit = enc.fit_transform(countries[['Region','Climate']].dropna())
     feats = fit.shape[1]
+    feats += 1 # compensando uma categoria perdida com .dropna()
+
     return int(feats)
 
 
